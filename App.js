@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 
 const Page = styled.SafeAreaView`
   flex: 1;
@@ -48,8 +48,16 @@ export default function app(){
     <Page>
       <ImageArea></ImageArea>
       <TextArea>Caracteres</TextArea>      
-      <InputArea></InputArea>
+      <InputArea 
+      placeholder = "Tamanho da senha (1 a 15)"
+      placeholderTextColor="#000"
+      keyboardType="numeric"
+      value={pass}
+      />
       <ResultArea></ResultArea>
+      <TouchableOpacity onPress={geraPsw}>
+      <Text>Gerar Senha</Text>
+      </TouchableOpacity>
     </Page>
   );
 }
