@@ -73,7 +73,8 @@ const estilo = StyleSheet.create({
     margin: 15,
     padding: 10,
     color: '#000',
-    fontSize: 23
+    fontSize: 23,
+    TextAlign: 'center'
   },
   botao: {
     justifyContent: 'center',
@@ -99,6 +100,7 @@ const estilo = StyleSheet.create({
     margin: 15,
     padding: 10,
     color: '#000',
-    fontSize: 23
+    fontSize: 23,
+    TextAlign: 'center'
   },
 });
