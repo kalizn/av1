@@ -1,33 +1,17 @@
 import React, { useState } from 'react';
-import { Text, Touchable, TouchableOpacity, View } from 'react-native';
-import styled from 'styled-components/native';
+import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native';
 
-const Page = styled.SafeAreaView`
-flex: 1;
-align-items: center;
-`;
-
-const ImageArea = styled.SafeAreaView`
-  width: 30px;
-  height: 30px;
-`;
-
-const TextArea = styled.Text`
-`;
-
-const InputArea = styled.TextInput`
-`;
-
-const ResultArea = styled.SafeAreaView`
-`;
-
-//cadeia de caracteres
 let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-export default function app(){
-  //criação das states
-  const [tamPass, setTamPass] = useState('');
-  
+export default function App() {
+  const [peso, setPeso] = useState(''); // armazena o peso
+  const [altura, setAltura] = useState(''); // armazena a altura
+
+  function limpar() {
+    setPeso("")
+    setAltura("")
+  }
+
   // função para a geração da senha
   function geraPsw(){
     let pass = '';
@@ -46,14 +30,58 @@ export default function app(){
   }
 
   return (
-    <Page>
-      <ImageArea source={require('./assets/cadeado.png')}>
-      </ImageArea>
-      <TextArea>Caracteres</TextArea>      
-      <InputArea>
+    <View style={estilo.container}>
+      <Image source={require('./assets/cadeado.png')} style={estilo.images}></Image>
+      <Text style={estilo.title}> Caracteres </Text>
 
-      </InputArea>
-      <ResultArea></ResultArea>
-    </Page>
+      <TextInput
+        style={estilo.input}
+        value={peso}         // valor dentro do componente
+        onChangeText={ (peso) => setPeso(peso) } // toda vez que o campo mudar ele é salvo
+        placeholder="Tamanho da senha (1 a 15)"
+        keyboardType="numeric"
+      />
+
+
+      <TouchableOpacity style={estilo.botao}
+      onPress={geraPsw}>
+        <Text style={estilo.textoBotao}>Gerar senha</Text>
+      </TouchableOpacity>
+    </View>
   );
 }
+
+const estilo = StyleSheet.create({
+  container: {
+    flex: 1
+  },
+  title: {
+    textAlign: 'center',
+    marginTop: 25,
+    fontSize: 30
+  },
+  input: {
+    backgroundColor: '#DDD',
+    borderRadius: 10,
+    margin: 15,
+    padding: 10,
+    color: '#000',
+    fontSize: 23
+  },
+  botao: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    margin: 15,
+    backgroundColor: '#ffa200',
+    padding: 10
+  },
+  textoBotao: {
+    color: '#FFF',
+    fontSize: 25
+  },
+  images: {
+    height: 100,
+    width: 100,
+    resizeMode: 'cover'
+  },
+});
