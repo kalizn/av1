@@ -41,11 +41,11 @@ export default function App() {
       onPress={geraPsw}>
         <Text style={estilo.textoBotao}>Gerar senha</Text>
       </TouchableOpacity>
-      {pass  &&
+      {pass  ?
       <View style={estilo.result}>
         <Text>{pass}</Text>
       </View>
-      }
+      : null }
       <Text style={estilo.aluno}>Antonio Pedrosa Araujo Neto</Text>
       <Text style={estilo.aluno}>Lucas Renan Maués Nunes</Text>
     </View>
