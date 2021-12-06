@@ -74,7 +74,7 @@ const estilo = StyleSheet.create({
     padding: 10,
     color: '#000',
     fontSize: 23,
-    textAlign: "center"
+    textAlign: 'center'
   },
   botao: {
     justifyContent: 'center',
