@@ -1,24 +1,21 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView`
-  flex: 1;
-  align-items: center;
+flex:1
+`;
+
+const ImageArea = styled.SafeAreaView`
 `;
 
 const TextArea = styled.Text`
-  font-size: 25px;
 `;
 
 const InputArea = styled.TextInput`
-  width: 90%;
-  height: 50px;
-  font-size: 18px;
-  background-color: #EEE;
-  margin-top: 20px;
-  border-radius: 10px;
-  padding: 10px;
+`;
+
+const ResultArea = styled.SafeAreaView`
 `;
 
 //cadeia de caracteres
@@ -26,6 +23,8 @@ let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 export default function app(){
   //criação das states
+  const [pass, setPass] = useState('');
+  const [size, setSize] = useState('');
   
   // função para a geração da senha
   function geraPsw(){
@@ -52,7 +51,8 @@ export default function app(){
       placeholder = "Tamanho da senha (1 a 15)"
       placeholderTextColor="#000"
       keyboardType="numeric"
-      value={pass}
+      value={size}
+      onChangeText={ (n) => setSize(n) }
       />
       <ResultArea></ResultArea>
       <TouchableOpacity onPress={geraPsw}>
