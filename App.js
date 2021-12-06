@@ -2,12 +2,31 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
+const Page = styled.SafeAreaView`
+  flex: 1;
+  align-items: center;
+`;
+
+const TextArea = styled.Text`
+  font-size: 25px;
+`;
+
+const InputArea = styled.TextInput`
+  width: 90%;
+  height: 50px;
+  font-size: 18px;
+  background-color: #EEE;
+  margin-top: 20px;
+  border-radius: 10px;
+  padding: 10px;
+`;
+
 //cadeia de caracteres
 let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 export default function app(){
   //criação das states
-
+  
   // função para a geração da senha
   function geraPsw(){
     let pass = '';
@@ -25,5 +44,12 @@ export default function app(){
     setPass(pass);
   }
 
-
+  return (
+    <Page>
+      <ImageArea></ImageArea>
+      <TextArea>Caracteres</TextArea>      
+      <InputArea></InputArea>
+      <ResultArea></ResultArea>
+    </Page>
+  );
 }
