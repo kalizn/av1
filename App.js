@@ -4,7 +4,8 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'reac
 let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 export default function App() {
-  const [pswTam, setPswTam] = useState(''); // armazena o tamnho
+  const [size, setSize] = useState(''); // armazena o tamnho
+  const [pass, setPass] = useState('');
 
   // função para a geração da senha
   function geraPsw(){
@@ -30,17 +31,20 @@ export default function App() {
 
       <TextInput
         style={estilo.input}
-        value={pswTam}         // valor dentro do componente
-        onChangeText={ (pswTam) => setPswTam(pswTam) } // toda vez que o campo mudar ele é salvo
+        value={size}         // valor dentro do componente
+        onChangeText={ (size) => setSize(size) } // toda vez que o campo mudar ele é salvo
         placeholder="Tamanho da senha (1 a 15)"
         keyboardType="numeric"
       />
-
 
       <TouchableOpacity style={estilo.botao}
       onPress={geraPsw}>
         <Text style={estilo.textoBotao}>Gerar senha</Text>
       </TouchableOpacity>
+
+      <View style={estilo.resultado}>
+        sdsuH13ed8d89jHB8uie
+      </View>
     </View>
   );
 }
@@ -80,4 +84,7 @@ const estilo = StyleSheet.create({
     resizeMode: 'cover',
     marginTop: 90
   },
+  resultado: {
+    
+  }
 });
