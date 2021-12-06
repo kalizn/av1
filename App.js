@@ -4,13 +4,7 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'reac
 let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 export default function App() {
-  const [peso, setPeso] = useState(''); // armazena o peso
-  const [altura, setAltura] = useState(''); // armazena a altura
-
-  function limpar() {
-    setPeso("")
-    setAltura("")
-  }
+  const [pswTam, setPswTam] = useState(''); // armazena o tamnho
 
   // função para a geração da senha
   function geraPsw(){
@@ -36,8 +30,8 @@ export default function App() {
 
       <TextInput
         style={estilo.input}
-        value={peso}         // valor dentro do componente
-        onChangeText={ (peso) => setPeso(peso) } // toda vez que o campo mudar ele é salvo
+        value={pswTam}         // valor dentro do componente
+        onChangeText={ (pswTam) => setPswTam(pswTam) } // toda vez que o campo mudar ele é salvo
         placeholder="Tamanho da senha (1 a 15)"
         keyboardType="numeric"
       />
@@ -53,7 +47,7 @@ export default function App() {
 
 const estilo = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   title: {
     textAlign: 'center',
@@ -80,8 +74,10 @@ const estilo = StyleSheet.create({
     fontSize: 25
   },
   images: {
+    alignSelf: "center",
     height: 100,
     width: 100,
-    resizeMode: 'cover'
+    resizeMode: 'cover',
+    marginTop: 90
   },
 });
