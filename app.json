@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AV1",
-    "slug": "AV1",
+    "name": "AV1 - Antonio Neto e Lucas Renan",
+    "slug": "AV1 - Antonio Neto e Lucas Renan",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -21,12 +21,9 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
     }
   }
 }
