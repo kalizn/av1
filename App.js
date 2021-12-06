@@ -4,8 +4,8 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity, Image } from 'reac
 let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
 export default function App() {
-  const [size, setSize] = useState(''); // armazena o tamnho
   const [pass, setPass] = useState('');
+  const [size, setSize] = useState(''); 
 
   // função para a geração da senha
   function geraPsw(){
@@ -27,7 +27,7 @@ export default function App() {
   return (
     <View style={estilo.container}>
       <Image source={require('./assets/cadeado.png')} style={estilo.images}></Image>
-      <Text style={estilo.title}> Caracteres </Text>
+      <Text style={estilo.title}> {size} Caracteres </Text>
 
       <TextInput
         style={estilo.input}
@@ -41,22 +41,31 @@ export default function App() {
       onPress={geraPsw}>
         <Text style={estilo.textoBotao}>Gerar senha</Text>
       </TouchableOpacity>
-
-      <View style={estilo.resultado}>
-        sdsuH13ed8d89jHB8uie
+      {pass  &&
+      <View style={estilo.result}>
+        <Text>{pass}</Text>
       </View>
+      }
+      <Text style={estilo.aluno}>Antonio Pedrosa Araujo Neto</Text>
+      <Text style={estilo.aluno}>Lucas Renan Maués Nunes</Text>
     </View>
+    
   );
 }
 
 const estilo = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   title: {
     textAlign: 'center',
     marginTop: 25,
     fontSize: 30
+  },
+  aluno: {
+    textAlign: 'center',
+    marginTop:20,
+    fontSize: 18
   },
   input: {
     backgroundColor: '#DDD',
@@ -64,7 +73,8 @@ const estilo = StyleSheet.create({
     margin: 15,
     padding: 10,
     color: '#000',
-    fontSize: 23
+    fontSize: 23,
+    textAlign: "center"
   },
   botao: {
     justifyContent: 'center',
@@ -78,13 +88,19 @@ const estilo = StyleSheet.create({
     fontSize: 25
   },
   images: {
-    alignSelf: "center",
+    marginTop:90,
     height: 100,
     width: 100,
     resizeMode: 'cover',
-    marginTop: 90
+    alignSelf:'center'
   },
-  resultado: {
-    
-  }
+  result: {
+    backgroundColor: '#DDD',
+    borderRadius: 10,
+    margin: 15,
+    padding: 10,
+    color: '#000',
+    fontSize: 23,
+    textAlign: "center"
+  },
 });
