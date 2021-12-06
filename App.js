@@ -2,20 +2,28 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+//cadeia de caracteres
+let charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default function app(){
+  //criação das states
+
+  // função para a geração da senha
+  function geraPsw(){
+    let pass = '';
+    let n = charset.length;
+
+    if(size < 1 || size > 15) {
+      alert('Tamanho da senha inválido');
+    } else {
+      // copia caracteres aleatórios para a senha
+      for (let i = 0; i < size; i++){
+        pass += charset.charAt(Math.floor(Math.random() * n))
+      }
+    }
+    // atualiza o campo senha (psw)
+    setPass(pass);
+  }
+
+
+}
