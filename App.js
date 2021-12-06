@@ -27,7 +27,7 @@ export default function App() {
   return (
     <View style={estilo.container}>
       <Image source={require('./assets/cadeado.png')} style={estilo.images}></Image>
-      <Text style={estilo.title}> Caracteres </Text>
+      <Text style={estilo.title}> {size} Caracteres </Text>
 
       <TextInput
         style={estilo.input}
@@ -37,16 +37,17 @@ export default function App() {
         keyboardType="numeric"
       />
 
-      <View style={estilo.result}>
-        <Text>{pass}</Text>
-      </View>
-
       <TouchableOpacity style={estilo.botao}
       onPress={geraPsw}>
         <Text style={estilo.textoBotao}>Gerar senha</Text>
       </TouchableOpacity>
-      <Text>Antonio Pedrosa Araujo Neto</Text>
-      <Text>Lucas Renan Maués Nunes</Text>
+      {pass  &&
+      <View style={estilo.result}>
+        <Text>{pass}</Text>
+      </View>
+      }
+      <Text style={estilo.aluno}>Antonio Pedrosa Araujo Neto</Text>
+      <Text style={estilo.aluno}>Lucas Renan Maués Nunes</Text>
     </View>
     
   );
@@ -60,6 +61,11 @@ const estilo = StyleSheet.create({
     textAlign: 'center',
     marginTop: 25,
     fontSize: 30
+  },
+  aluno: {
+    textAlign: 'center',
+    marginTop:20,
+    fontSize: 18
   },
   input: {
     backgroundColor: '#DDD',
@@ -81,9 +87,18 @@ const estilo = StyleSheet.create({
     fontSize: 25
   },
   images: {
+    marginTop:90,
     height: 100,
     width: 100,
     resizeMode: 'cover',
     alignSelf:'center'
+  },
+  result: {
+    backgroundColor: '#DDD',
+    borderRadius: 10,
+    margin: 15,
+    padding: 10,
+    color: '#000',
+    fontSize: 23
   },
 });
