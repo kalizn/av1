@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { Text, Touchable, TouchableOpacity, View } from 'react-native';
 import styled from 'styled-components/native';
 
 const Page = styled.SafeAreaView`
+flex: 1;
+align-items: center;
 `;
 
 const ImageArea = styled.SafeAreaView`
+  width: 30px;
+  height: 30px;
 `;
 
 const TextArea = styled.Text`
@@ -43,9 +47,12 @@ export default function app(){
 
   return (
     <Page>
-      <ImageArea></ImageArea>
+      <ImageArea source={require('./assets/cadeado.png')}>
+      </ImageArea>
       <TextArea>Caracteres</TextArea>      
-      <InputArea></InputArea>
+      <InputArea>
+
+      </InputArea>
       <ResultArea></ResultArea>
     </Page>
   );
